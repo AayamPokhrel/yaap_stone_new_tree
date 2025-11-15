@@ -102,6 +102,11 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
+    PRODUCT_PACKAGES += libbootctrl
+    $(call all-makefiles-under,$(LOCAL_PATH)/../../hardware/qcom/bootctrl)
+    PRODUCT_PACKAGES += android.hardware.boot@1.0-service
+
+
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -396,10 +401,13 @@ PRODUCT_PACKAGES += \
 # Recovery
 PRODUCT_PACKAGES += \
     init_xiaomi_stone.recovery
+TARGET_OTA_ASSERT_DEVICE := stone sunstone moonstone
+
+
 
 # RIL
 PRODUCT_PACKAGES += \
-    librmnetctl
+    librmnetctlboo
 
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.5.vendor \

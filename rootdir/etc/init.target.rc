@@ -77,6 +77,12 @@ on init
 on early-fs
     start vold
 
+service bootctrl /vendor/bin/hw/android.hardware.boot@1.0-service #bootctrl
+    class hal
+    user system
+    group system
+    oneshot
+
 on fs
     start hwservicemanager
     mount_all --early
